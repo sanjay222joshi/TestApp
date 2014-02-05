@@ -1,0 +1,8 @@
+<project name="CNBC" default="calabash-android" basedir=".">
+	<property name="PathAndroidApp" location="..\bin\cnbcSigned.apk"/>
+	<target name="calabash-android">
+		<exec dir="./" executable="cmd">
+			<arg value="/c calabash-android run ${PathAndroidApp} ADB_DEVICE_ARG=bfbc0a61 TEST_SERVER_PORT=34800 --format json --out cucumber.json"/>
+		</exec>
+	</target>
+</project>

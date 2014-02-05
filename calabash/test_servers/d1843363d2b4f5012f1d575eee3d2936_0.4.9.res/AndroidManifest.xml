@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest android:versionCode="1011" android:versionName="2.0.35" package="com.cnbc.client"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <permission android:name="com.cnbc.client.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="com.cnbc.client.permission.C2D_MESSAGE" />
+    <permission android:name="com.cnbc.client.contentprovider.READ" android:protectionLevel="signature" />
+    <application android:theme="@style/AppTheme" android:label="@string/app_name" android:icon="@drawable/ic_launcher" android:name="com.nbc.cnbc.realtime.CNBCRTApplication" android:debuggable="true" android:allowBackup="true">
+        <activity android:theme="@*android:style/Theme.Light.NoTitleBar" android:label="@string/app_name" android:name=".cnbcclient">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.nbc.cnbc.realtime.activities.HomeActivity" android:launchMode="singleTask" android:configChanges="orientation|screenSize" />
+        <activity android:name="com.nbc.cnbc.realtime.activities.ArticleDetailActivity" android:screenOrientation="portrait" android:parentActivityName="com.nbc.cnbc.realtime.activities.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nbc.cnbc.realtime.activities.HomeActivity" />
+        </activity>
+        <activity android:name="com.nbc.cnbc.realtime.activities.QuoteDetailActivity" android:configChanges="orientation|screenSize" android:parentActivityName="com.nbc.cnbc.realtime.activities.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nbc.cnbc.realtime.activities.HomeActivity" />
+        </activity>
+        <activity android:theme="@style/CustomTheme" android:name="com.nbc.cnbc.realtime.activities.SettingsActivity" android:screenOrientation="portrait" />
+        <activity android:name="com.nbc.cnbc.realtime.activities.EditWatchlistFavouriteActivity" android:screenOrientation="portrait" />
+        <activity android:theme="@*android:style/Theme.Light.NoTitleBar" android:name="com.nbc.cnbc.realtime.activities.SplashActivity" android:screenOrientation="portrait" />
+        <activity android:theme="@style/CustomThemeLight" android:name="com.nbc.cnbc.realtime.activities.EditionSelectionActivity" android:screenOrientation="portrait" />
+        <activity android:theme="@style/ActionBarOverlayTheme" android:name="com.nbc.cnbc.realtime.activities.VideoActivity" android:screenOrientation="landscape" />
+        <activity android:theme="@style/ActionBarOverlayTheme" android:name="com.nbc.cnbc.realtime.activities.SlideShowActivity" android:configChanges="orientation|screenSize" android:parentActivityName="com.nbc.cnbc.realtime.activities.HomeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.nbc.cnbc.realtime.activities.HomeActivity" />
+        </activity>
+        <activity android:name="com.nbc.cnbc.realtime.activities.CreateEditWatchlistActivity" android:screenOrientation="portrait" />
+        <activity android:theme="@style/TransparentTheme" android:name="com.nbc.cnbc.realtime.activities.SymbolLookUpActivity" android:screenOrientation="portrait" />
+        <activity android:theme="@*android:style/Theme.Translucent.NoTitleBar" android:name="com.nbc.cnbc.realtime.activities.TutorialActivity" android:screenOrientation="portrait" />
+        <activity android:name="com.google.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+        <activity android:theme="@*android:style/Theme.Translucent.NoTitleBar" android:label="Rhythm Activity" android:name="com.rhythmnewmedia.sdk.RhythmActivity" android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:theme="@*android:style/Theme.Black.NoTitleBar" android:label="Rhythm Video Activity" android:name="com.rhythmnewmedia.sdk.video.RhythmVideoActivity" android:configChanges="keyboard|keyboardHidden|orientation" />
+        <receiver android:name="com.nbc.cnbc.realtime.receiver.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.cnbc.client" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.nbc.cnbc.realtime.receiver.NetworkConnectivityReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <provider android:name="com.nbc.cnbc.realtime.contentprovider.CNBCContentProvider" android:permission="com.cnbc.client.contentprovider.READ" android:authorities="com.cnbc.client.contentprovider" />
+    </application>
+</manifest>

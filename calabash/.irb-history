@@ -1,0 +1,50 @@
+performAction("drag_coordinates", query("* marked:'Markets | Pre-Markets'")[0]['rect']['center_x'], query("* marked:'Markets | Pre-Markets'")[0]['rect']['center_y'], query("* id:'topNewsText'")[0]['rect']['center_x'], query("* id:'topNewsText'")[0]['rect']['center_y'])
+exit
+install_app
+reinstall_apps
+exit
+start_test_server_in_background
+performAction('select_from_menu', 'My Stocks')
+performAction('select_from_menu', 'My Stocks')
+performAction('select_from_menu', 'Indexes')
+performAction('select_from_menu', 'Indexes')
+performAction('select_from_menu', 'Settings')
+performAction('select_from_menu', 'Settings')
+exit
+reinstall_test_server
+start_test_server_in_background
+performAction('select_from_menu', 'Home')
+performAction('assert_text',text, true)
+performAction('assert_text','Home', true)
+performAction('assert_text',' ', true)
+performAction('assert_text','e', true)
+performAction('assert_text','Home', true)
+performAction('assert_text','ome', true)
+performAction('assert_text','e', true)
+performAction('assert_text',' ', true)
+performAction('assert_text',' ', true)
+start_test_server_in_background
+performAction('assert_text',' ', true)
+performAction('press_menu')
+performAction('press_menu')
+performAction('press_menu')
+performAction('assert_text',' ')
+performAction('assert_text',' ', true)
+performAction('assert_text',Home, true)
+performAction('assert_text',Home', true)
+
+performAction('assert_text','Home', true)
+performAction('dump_body_html'))
+performAction('dump_body_html')
+performAction('dump_body_html')
+cls
+performAction('dump_body_html')
+performAction('dump_body_html')
+performAction('dump_body_html')
+performAction('dump_body_html')
+performAction('dump_body_html')
+performAction('assert_text','Home', true)
+query("webview css:'a'")
+query("webview css:'div'")
+cls
+performAction('assert_text','Home', false)
